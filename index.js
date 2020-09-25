@@ -1,7 +1,3 @@
-
-
-
-
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
@@ -12,71 +8,107 @@ function promptUser() {
   return inquirer.prompt([
     {
       type: "input",
-      name: "name",
-      message: "What is your name?"
+      name: "title",
+      message: "What is the title of this project?"
     },
     {
       type: "input",
-      name: "location",
-      message: "Where are you from?"
+      name: "description",
+      message: "Please describe your project:"
     },
     {
       type: "input",
-      name: "hobby",
-      message: "What is your favorite hobby?"
+      name: "installation",
+      message: "Please describe how to install what is needed for this project:"
     },
     {
       type: "input",
-      name: "food",
-      message: "What is your favorite food?"
+      name: "usage",
+      message: "Provide instructions and examples for use:"
+    },
+    {
+      type: "list",
+      message: "Please choose a lisence:",
+      name: "license",
+      choices: [
+        "MIT",
+        "GNU GPLv3"
+    ]
+    },
+    {
+      type: "input",
+      name: "contributing",
+      message: "List your collaborators, if any, with links to their GitHub profiles:"
+    },
+    {
+      type: "input",
+      name: "tests",
+      message: "Please include any tests that can be performed on this project:"
     },
     {
       type: "input",
       name: "github",
-      message: "Enter your GitHub Username"
+      message: "Enter your GitHub Username:"
     },
     {
       type: "input",
-      name: "linkedin",
-      message: "Enter your LinkedIn URL."
+      name: "email",
+      message: "Enter a point of contact email for questions:"
     }
   ]);
 }
 
-function generateHTML(answers) {
+let badgeID = "MIT";
+function generateMD(answers) {
+    const badge = "![anything](https://img.shields.io/badge/license-" + badgeID + "-green)"
   return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-    <p class="lead">I am from ${answers.location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+  # ${answers.title}
+  
+  ${badge}
+  ## Description
+  ${answers.description}
+
+  ## Table of Contents
+  * [Description](#description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contributing](#contributing)
+  * [Tests](#tests)
+  * [Questions](#questions)
+  * [License](#license)
+  
+  ## Installation
+  ${answers.installation}
+  
+  ## Usage
+  ${answers.usage}
+  
+  ## Contributing
+  ${answers.contributing}
+  
+  ## Tests
+  ${answers.tests}
+
+  ## Questions
+  Any questions regarding this project can be sent to ${answers.email} or contacted via https://github.com/${answers.github}
+  
+  
+  ## License
+  ${answers.license}
+  ![anything](https://img.shields.io/badge/banana-potato-blue)
+  
+  
+  `;
 }
 
 promptUser()
   .then(function(answers) {
-    const html = generateHTML(answers);
+    const mdFile = generateMD(answers);
 
-    return writeFileAsync("index.html", html);
+    return writeFileAsync("README.md", mdFile);
   })
   .then(function() {
-    console.log("Successfully wrote to index.html");
+    console.log("Successfully wrote a new README.md. Please add screenshots in the visual section manually.");
   })
   .catch(function(err) {
     console.log(err);
