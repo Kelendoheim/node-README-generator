@@ -58,9 +58,14 @@ function promptUser() {
   ]);
 }
 
-let badgeID = "MIT";
+
 function generateMD(answers) {
-    const badge = "![anything](https://img.shields.io/badge/license-" + badgeID + "-green)"
+    // if (answers.license = "GNU GPLv3"){
+    //     let selectedLicense = "GNU"
+    // } else if (answers.license = "MIT") {
+    //     let selectedLicense = "MIT"
+    // }
+    const badge = "![anything](https://img.shields.io/badge/license-" + "MIT" + "-green)"
   return `
   # ${answers.title}
   
@@ -82,6 +87,9 @@ function generateMD(answers) {
   
   ## Usage
   ${answers.usage}
+
+  ## Visuals
+
   
   ## Contributing
   ${answers.contributing}
