@@ -2,6 +2,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
 
+
 const writeFileAsync = util.promisify(fs.writeFile);
 
 function promptUser() {
@@ -60,12 +61,14 @@ function promptUser() {
 
 
 function generateMD(answers) {
+    // let selectedLicense = ""
     // if (answers.license = "GNU GPLv3"){
-    //     let selectedLicense = "GNU"
+    //     selectedLicense = "GNU"
     // } else if (answers.license = "MIT") {
-    //     let selectedLicense = "MIT"
+    //     selectedLicense = "MIT"
     // }
-    const badge = "![anything](https://img.shields.io/badge/license-" + "MIT" + "-green)"
+    console.log(answers.license)
+    const badge = "![license](https://img.shields.io/badge/license-" + "BREAK" + "-green)"
   return `
   # ${answers.title}
   
@@ -103,7 +106,7 @@ function generateMD(answers) {
   
   ## License
   ${answers.license}
-  ![anything](https://img.shields.io/badge/banana-potato-blue)
+  ${badge}
   
   
   `;
@@ -111,6 +114,7 @@ function generateMD(answers) {
 
 promptUser()
   .then(function(answers) {
+    
     const mdFile = generateMD(answers);
 
     return writeFileAsync("README.md", mdFile);
