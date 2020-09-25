@@ -39,12 +39,17 @@ function promptUser() {
     {
       type: "input",
       name: "contributing",
-      message: "List your collaborators, if any, with links to their GitHub profiles:"
+      message: "State if you are open to contributions and what your requirements are for accepting them"
     },
     {
       type: "input",
       name: "tests",
       message: "Please include any tests that can be performed on this project:"
+    },
+    {
+      type: "input",
+      name: "authors",
+      message: "List your collaborators, if any, with links to their GitHub profiles:"
     },
     {
       type: "input",
@@ -98,6 +103,9 @@ function generateMD(answers) {
   
   ## Contributing
   ${answers.contributing}
+
+  ## Authors and Acknowledgements
+  ${answers.authors}
   
   ## Tests
   ${answers.tests}
