@@ -1,9 +1,9 @@
 
   # test
   
-  ![license](https://img.shields.io/badge/license-BREAK-green)
+  ![license](https://img.shields.io/badge/license-GNU-green)
   ## Description
-  er
+  test
 
   ## Table of Contents
   * [Description](#description)
@@ -15,27 +15,27 @@
   * [License](#license)
   
   ## Installation
-  sdf
+  test
   
   ## Usage
-  sdf
+  test
 
   ## Visuals
 
   
   ## Contributing
-  sdf
+  test
   
   ## Tests
-  sdf
+  test
 
   ## Questions
-  Any questions regarding this project can be sent to sdf or contacted via https://github.com/sdf
+  Any questions regarding this project can be sent to test or contacted via https://github.com/test
   
   
   ## License
-  MIT
-  ![license](https://img.shields.io/badge/license-BREAK-green)
+  GNU GPLv3
+  ![license](https://img.shields.io/badge/license-GNU-green)
   
   
   

@@ -57,18 +57,20 @@ function promptUser() {
       message: "Enter a point of contact email for questions:"
     }
   ]);
+  
 }
 
 
+
 function generateMD(answers) {
-    // let selectedLicense = ""
-    // if (answers.license = "GNU GPLv3"){
-    //     selectedLicense = "GNU"
-    // } else if (answers.license = "MIT") {
-    //     selectedLicense = "MIT"
-    // }
-    console.log(answers.license)
-    const badge = "![license](https://img.shields.io/badge/license-" + "BREAK" + "-green)"
+    let selectedLicense = ""
+    if (answers.license === "GNU GPLv3"){
+        selectedLicense = "GNU"
+    } else if (answers.license === "MIT") {
+        selectedLicense = "MIT"
+    }
+    
+    const badge = "![license](https://img.shields.io/badge/license-" + selectedLicense + "-green)"
   return `
   # ${answers.title}
   
@@ -114,6 +116,7 @@ function generateMD(answers) {
 
 promptUser()
   .then(function(answers) {
+    console.log(answers.license)
     
     const mdFile = generateMD(answers);
 
