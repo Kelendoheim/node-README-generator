@@ -80,6 +80,7 @@ function generateMD(answers) {
   # ${answers.title}
   
   ${badge}
+  <a name="description"></a>
   ## Description
   ${answers.description}
 
@@ -87,33 +88,43 @@ function generateMD(answers) {
   * [Description](#description)
   * [Installation](#installation)
   * [Usage](#usage)
+  * [Visuals](#visuals)
   * [Contributing](#contributing)
+  * [Authors and Acknowledgments](#authors)
   * [Tests](#tests)
   * [Questions](#questions)
   * [License](#license)
   
+  <a name="installation"></a>
   ## Installation
   ${answers.installation}
   
+  <a name="usage"></a>
   ## Usage
   ${answers.usage}
 
+  <a name="visuals"></a>
   ## Visuals
 
   
+  <a name="contributing"></a>
   ## Contributing
   ${answers.contributing}
 
+  <a name="authors"></a>
   ## Authors and Acknowledgements
   ${answers.authors}
   
+  <a name="tests"></a>
   ## Tests
   ${answers.tests}
 
+  <a name="questions"></a>
   ## Questions
   Any questions regarding this project can be sent to ${answers.email} or contacted via https://github.com/${answers.github}
   
   
+  <a name="license"></a>
   ## License
   ${answers.license}
   ${badge}
@@ -128,7 +139,7 @@ promptUser()
     
     const mdFile = generateMD(answers);
 
-    return writeFileAsync("README.md", mdFile);
+    return writeFileAsync("README2.md", mdFile);
   })
   .then(function() {
     console.log("Successfully wrote a new README.md. Please add screenshots in the visual section manually.");

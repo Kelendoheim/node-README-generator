@@ -6,12 +6,13 @@
    This project is designed to allow the user to create a readme generator from inside the terminal. The user will still need to populate the visual section with screenshots, and will be prompted to do upon completion. 
 
   ## Table of Contents
-  * [Description](#description)
+  * [Description](#Description)
   * [Installation](#installation)
   * [Usage](#usage)
   * [Contributing](#contributing)
+  * [Authors](#contributing)
   * [Tests](#tests)
-  * [Questions](#questions)
+  * [Questions](#Questions)
   * [License](#license)
   
   ## Installation
